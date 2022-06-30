@@ -8,23 +8,20 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <div id="grid"></div>
-    <div class="data">
-        <label for="size-select">Choose a board size: </label>
-        <select id="size-select">
-          <option value="empty" selected>--Choose board size--</option>
-          <option value="1">1x1</option>
-          <option value="2">2x2</option>
-          <option value="3">3x3</option>
-          <option value="4">4x4</option>
-          <option value="5">5x5</option>
-          <option value="6">6x6</option>
-          <option value="7">7x7</option>
-          <option value="8">8x8</option>
-          <option value="9">9x9</option>
-        </select>
-      </div>
-      <div class='board-container'></div>
+
+    <div class="flex-container">
+        <h1>Etch-A-Sketch</h1>
+        <div class ="content">
+            <div class='board'></div>
+            <div class="buttons">
+                <button onclick="populateBoard(64,'random')">64*64</button>
+                <button onclick="resetGrid()">Reset Grid</button>
+                <button onclick="populateBoard(32,'random')">32*32</button>
+                <button onclick="populateBoard(32,'black')">Black</button>
+            </div>
+        </div>
+    </div>    
+      
 
 </body>
 <script src="sketch.js"></script>

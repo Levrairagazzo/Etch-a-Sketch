@@ -1,31 +1,51 @@
-// var container = document.getElementById("grid");
 
+const board = document.querySelector(".board");
+let globalColor = "black";
 
-// function generateGrid(cells){
-// for (let index = 0; index < cells; index++) {
-//     var cell = document.createElement("div");
-//     cell.className += "myDivs";
-//     cell.innerHTML = index;
-//     container.appendChild(cell);
+function populateBoard(size, color) {
+    deleteBoard();
+
+  let squares = board.querySelectorAll("div");
+  board.style.gridTemplateColumns = `repeat(${size} , 1fr)`;
+  board.style.gridTemplateRows = `repeat(${size} , 1fr)`;
+
+  let amount = size * size;
+  for (let i = 0; i < amount; i++) {
+    let square = document.createElement("div");
+    square.style.backgroundColor = "white";
+    square.addEventListener('mouseover', () =>{
+
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        if (color === "random"){
+            colorPicked = '#' + randomColor;
+        }else{
+            colorPicked = color;
+        }
+        if(square.style.backgroundColor === "white")
+            square.style.backgroundColor = colorPicked;
+    })
     
-// }
-// }
-
-// generateGrid(256);
-
-const boardSizeSelect = document.querySelector('#size-select'),
-  boardContainer = document.querySelector('.board-container')
-
-boardSizeSelect.addEventListener('change', e => {
-  const option = e.currentTarget,
-    boardSize = Math.pow(option.value, 2)
-
-  boardContainer.style.gridTemplateColumns = `repeat(${option.value}, 1fr)`
-
-  boardContainer.innerHTML = ''
-  for (let i = 1; i <= boardSize; i++){
-    boardContainer.innerHTML += `<div>${i}</div>`;
+    board.insertAdjacentElement("beforeEnd", square);
+  }
 }
-})
 
+function deleteBoard(){
+    let allCells = board.querySelectorAll('div');
+    allCells.forEach((div) => div.remove());
+}
+function resetGrid(){
+    let allCells = board.querySelectorAll('div');
+    allCells.forEach((div) => div.style.backgroundColor = "white");
+
+}
+
+function hoverColor(){
+    let allCells = board.querySelectorAll('div');
+    allCells.forEach(div.addEventListener('mouseover', () =>{
+      
+            div.style.backgroundColor = "black";
+    }))
+}
+
+populateBoard(32, "random");
 
