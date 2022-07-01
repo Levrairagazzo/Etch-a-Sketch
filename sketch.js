@@ -2,7 +2,7 @@
 const board = document.querySelector(".board");
 let globalColor = "black";
 
-function populateBoard(size, color) {
+function populateBoard(size) {
     deleteBoard();
 
   let squares = board.querySelectorAll("div");
@@ -16,17 +16,23 @@ function populateBoard(size, color) {
     square.addEventListener('mouseover', () =>{
 
         let randomColor = Math.floor(Math.random()*16777215).toString(16);
-        if (color === "random"){
+        if (globalColor === "random"){
             colorPicked = '#' + randomColor;
         }else{
-            colorPicked = color;
+            colorPicked = globalColor;
         }
         if(square.style.backgroundColor === "white")
             square.style.backgroundColor = colorPicked;
+
     })
     
     board.insertAdjacentElement("beforeEnd", square);
   }
+}
+
+function changeColor(newColor){
+    globalColor = newColor;
+
 }
 
 function deleteBoard(){

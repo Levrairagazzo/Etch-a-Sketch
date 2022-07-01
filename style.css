@@ -11,6 +11,7 @@
     cursor: crosshair;
   }
   button{
+    margin: 10px;
     min-width: 75px;
     min-height: 25px;
   }
@@ -19,6 +20,11 @@
     transition: 1s;
     background-color: yellow;
     
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+
   }
 
   .content {

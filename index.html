@@ -7,17 +7,24 @@
     <link rel="stylesheet" href="style.css">
     <title>Etch-A-Sketch</title>
 </head>
-<body>
+<body style="background-image: url('Yosemite.jpeg');">
 
     <div class="flex-container">
         <h1>Etch-A-Sketch</h1>
         <div class ="content">
-            <div class='board'></div>
-            <div class="buttons">
-                <button onclick="populateBoard(64,'random')">64*64</button>
+            <div class = "buttons">
+                <h3>Change size of the board: </h2>
+                <button onclick="populateBoard(64)">64*64</button>
+                <button onclick="populateBoard(32)">32*32</button>
                 <button onclick="resetGrid()">Reset Grid</button>
-                <button onclick="populateBoard(32,'random')">32*32</button>
-                <button onclick="populateBoard(32,'black')">Black</button>
+            </div>
+            <div class='board'></div>
+            <div class="buttons" style = "background-color: skyblue;">
+                <h3>Change Color: </h2>
+                <button onclick="changeColor('red')">Red</button>
+                <button onclick="changeColor('random')">Random</button>
+                <button onclick="changeColor('black')">Black</button>
+
             </div>
         </div>
     </div>    
